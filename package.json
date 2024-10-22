@@ -1,0 +1,6 @@
+{
+	"devDependencies": {
+		"prettier": "^3.3.3",
+		"wrangler": "^3.79.0"
+	}
+}

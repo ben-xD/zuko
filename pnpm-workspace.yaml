@@ -1,0 +1,5 @@
+# docs: https://pnpm.io/pnpm-workspace_yaml
+packages:
+  - zuko-frontend
+  - zuko-backend
+  # - packages/**
