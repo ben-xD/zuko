@@ -7,6 +7,7 @@ import eslintPluginReactHooks from "eslint-plugin-react-hooks";
 import eslintPluginPrettier from "eslint-plugin-prettier";
 import tseslintParser from "@typescript-eslint/parser";
 import eslintPluginReactRefresh from "eslint-plugin-react-refresh";
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
 const __dirname = import.meta.dirname;
 
@@ -14,6 +15,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
+  ...pluginQuery.configs['flat/recommended'],
   eslintReactRecommended,
   eslintReactJsxRuntime,
   // This needs to in a separate object to be a "global ignore". See https://github.com/eslint/eslint/discussions/17429
@@ -28,7 +30,7 @@ export default tseslint.config(
       parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
-        project: ["./tsconfig.json", "./tsconfig.node.json"],
+        project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: __dirname,
       },
     },
@@ -55,16 +57,9 @@ export default tseslint.config(
       // We do this to prevent errors in some shadcn/ui components e.g. `error  'className' is missing in props validation`
       // Code taken from https://github.com/shadcn-ui/ui/issues/120#issuecomment-1828081539
       "react/prop-types": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+      // "react/prop-types": [2, { ignore: ["className", "sideOffset"] }],
+      // "react-refresh/only-export-components": "off",
     },
-    // Alternative approach to avoid shadcn/ui prop types eslint errors (but needs hardcoding of specific props)
-    // overrides: [
-    //   {
-    //     files: ["**/components/ui/*.tsx"],
-    //     rules: {
-    //       "react/prop-types": [2, { ignore: ["className", "sideOffset"] }],
-    //       "react-refresh/only-export-components": "off",
-    //     },
-    //   },
-    // ],
   },
 );
