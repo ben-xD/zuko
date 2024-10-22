@@ -25,4 +25,4 @@ By Mark Cox-Smith, Toby Little and Ben Butterworth as part of [Oak National Acad
 
 ## Project history
 
-- The name was inspired by Zuko from Avatar: The Last Airbender.
+- The name was inspired by Zuko from Avatar: The Last Airbender. Zuko also means "long life" in Japanese.

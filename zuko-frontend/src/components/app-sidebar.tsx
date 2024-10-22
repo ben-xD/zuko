@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { Link } from "@tanstack/react-router"
 
 const data = {
   navMain: [
@@ -23,6 +24,7 @@ const data = {
         {
           title: "Remediation strategies",
           url: "/teachers/pre-exclusion/remediation-strategies",
+          disabled: true,
         },
       ],
     },
@@ -33,22 +35,32 @@ const data = {
         {
           title: "Parents letter",
           url: "/teachers/exclusion/parents-letter",
+          disabled: true,
+        },
+        {
+          title: "Remediation story",
+          url: "/teachers/exclusion/remediation-story",
+          disabled: false,
         },
         {
           title: "Quiz library",
-          url: "/teachers/exclusion/quiz",
+          url: "/teachers/exclusion/quiz-library",
+          disabled: false,
         },
         {
-          title: "Send to student / parents",
-          url: "/teachers/exclusion/send",
+          title: "Student take-home pack",
+          url: "/teachers/exclusion/student-take-home-pack",
+          disabled: false,
         },
         {
           title: "Parents support",
           url: "/teachers/exclusion/parents-support",
+          disabled: true,
         },
         {
           title: "Assessments",
           url: "/teachers/exclusion/completed",
+          disabled: true,
         },
       ],
     },
@@ -59,21 +71,23 @@ const data = {
         {
           title: "Parents letter",
           url: "/teachers/post-exclusion/parents-latter",
+          disabled: true,
         },
         {
           title: "Report",
           url: "/teachers/post-exclusion/report",
+          disabled: true,
         },
       ]
     }
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ currentUrl, ...props }: React.ComponentProps<typeof Sidebar> & { currentUrl: string }) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <h1 className="uppercase text-center mt-1 text-xl">Zuko</h1>
+        <h1 className="uppercase text-center mt-1 text-xl"><Link to='/'>Zuko</Link></h1>
         <SearchForm />
       </SidebarHeader>
       <SidebarContent>
@@ -82,13 +96,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                {item.items.map((item) =>{
+                  const isActive = item.url === currentUrl
+                  return (
+                    <SidebarMenuItem key={item.title}>
+                        <Link disabled={item.disabled} className="[&.active]:font-bold" to={item.url}>
+                      <SidebarMenuButton isActive={isActive} disabled={item.disabled}>
+                      {item.title}
+                      </SidebarMenuButton>
+                        </Link>
+                    </SidebarMenuItem>
+                  )
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
