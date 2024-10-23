@@ -43,8 +43,13 @@ const data = {
           disabled: false,
         },
         {
+          title: "Create quiz",
+          url: "/teachers/exclusion/quiz/create",
+          disabled: false,
+        },
+        {
           title: "Quiz library",
-          url: "/teachers/exclusion/quiz-library",
+          url: "/teachers/exclusion/quiz/library",
           disabled: false,
         },
         {
