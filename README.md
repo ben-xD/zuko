@@ -8,8 +8,10 @@ By Mark Cox-Smith, Toby Little and Ben Butterworth as part of [Oak National Acad
 - Backend/API: https://zuko-backend.benz.workers.dev
 - Backend OpenAPI: https://zuko-backend.benz.workers.dev/docs
 - Modern OpenAPI (Scalar): https://zuko-backend.benz.workers.dev/scalar
+- Note: The API pages don't work over some VPNs
 - Third party:
   - Oak National Academy: https://open-api.thenational.academy/playground
+  - Hacker pack: https://hacklabs.notion.site/Oak-Edhack-Hacker-Pack-120ff48ab12080709c99c8df4a04f00c
 
 ## Technologies
 
@@ -22,6 +24,10 @@ By Mark Cox-Smith, Toby Little and Ben Butterworth as part of [Oak National Acad
 - Install NodeJS
 - Install pnpm
 - Install dependencies: `pnpm install`
+- Install turso https://docs.turso.tech/cli/installation
+- Database setup:
+  - Create database in the cloud: `turso db create zuko-production`
+  - Migration: 
 
 ## Project history
 
@@ -31,3 +37,13 @@ By Mark Cox-Smith, Toby Little and Ben Butterworth as part of [Oak National Acad
 - Make sure DB is migrated
 - Deploy backend
 - Build frontend, then deploy frontend
+
+## TODOs
+
+- Setup teacher UI: quiz UI and API, integrate with prompts
+- Setup student UI: answer quiz
+- Setup workers AI access (credentials, example inference)
+- Setup other automations UI
+
+## Nice to haves
+- Deploy backend from CI: https://hono.dev/docs/getting-started/cloudflare-workers#deploy-from-github-action

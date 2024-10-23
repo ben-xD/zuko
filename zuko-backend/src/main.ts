@@ -1,10 +1,11 @@
 import { swaggerUI } from "@hono/swagger-ui";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { apiReference as scalarUI } from "@scalar/hono-api-reference";
-import { quizRouter } from "./routers/quiz";
+import { quizTeacherRouter } from "./routers/quizTeacher";
 import {createOakHttpClient} from './oakHttpClient';
 import {AppContext} from './AppContext';
 import { cors } from 'hono/cors'
+import {createDb} from './db/db';
 
 // See https://hono.dev/docs/concepts/stacks and https://hono.dev/docs/guides/rpc for more information
 // For streaming LLM responses over SSE, we can use https://hono.dev/docs/helpers/streaming#streamsse
@@ -24,9 +25,14 @@ const app = new OpenAPIHono<AppContext>()
 app.use('/api/*', cors())
 .use(async (c, next) => {
   c.set("oakHttpClient", createOakHttpClient(c.env.OAK_NATIONAL_ACADEMY_HTTP_URL));
+  c.set('db', createDb({url: c.env.DB_TURSO_URL, authToken: c.env.DB_TURSO_AUTH_TOKEN}));
   await next();
 })
-.route("/api/quiz", quizRouter)
+// More middlewares:
+// .use(async (c, next) => {
+//   await next();
+// })
+.route("/api/quiz", quizTeacherRouter)
 // TODO Register more routers here.
 // .route("/example", exampleRouter)
 .get("/", (c) => {
