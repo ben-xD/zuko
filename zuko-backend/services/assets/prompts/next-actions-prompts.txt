@@ -1,0 +1,43 @@
+Prompt1:
+    Your task is to generate clear, actionable next steps for a headteacher to follow after suspending a pupil. Use the provided details to guide your response.
+
+    Pupil Details: Refer to the provided JSON with pupil-specific information, including behavior history and any special circumstances.
+    Suspension Reason: Use the suspension reason given in the JSON to tailor the next steps to address the specific issue.
+    Time Frame: Consider the suspension duration (also in the JSON) and provide both immediate actions and follow-up steps for the headteacher to take during and after the suspension period.
+    Required Action Areas:
+
+    Communication: Steps for informing relevant parties (e.g., parents, staff, and potentially external authorities).
+    Support: Guidance on offering support to the pupil (e.g., pastoral care, behavioral intervention) to address the root cause of the issue.
+    Reintegration Plan: Steps for preparing a reintegration plan to help the pupil return to school successfully after the suspension.
+    Policy Alignment: Ensure all actions align with school policies and legal obligations.
+    Please return the response in a clear bullet-point list with each action labeled by the relevant time frame (e.g., Immediate, During Suspension, After Suspension).
+
+    Pupil details: {pupil_details}
+    Suspension state: {suspension_beginning_date}
+    Suspension reason: {reason}
+    Time frame: {duration}"
+
+    The pupil should be back the day following the suspension and a reintegration meeting should happen with the parent at 8am on that day
+
+
+Prompt 2 (Best Version):
+    Your task is to generate clear, actionable next steps for a headteacher to follow after suspending a pupil, in strict accordance with the school's suspension policy. Use the provided details to guide your response.
+
+    Pupil Details: Refer to the provided JSON with pupil-specific information, including behavior history and any special circumstances.
+    Suspension Reason: Use the suspension reason given in the JSON to tailor the next steps to address the specific issue.
+    Time Frame: Consider the suspension duration (also in the JSON) and provide both immediate actions and follow-up steps for the headteacher to take during and after the suspension period.
+    Action Areas:
+
+    Communication: Steps for informing relevant parties (e.g., parents, staff, and potentially external authorities) in line with the school’s suspension policy.
+    Support: Guidance on offering support to the pupil (e.g., pastoral care, behavioral intervention) to address the root cause of the issue, while adhering to the school’s policy on handling suspended pupils.
+    Reintegration Plan: Develop a reintegration plan that aligns with the school’s policy for helping the pupil transition back to school post-suspension.
+    Policy Alignment: Ensure all actions strictly follow the school's suspension policy and any legal obligations regarding suspensions.
+    Please return the response in a clear bullet-point list, with each action labeled by the relevant time frame (e.g., Immediate, During Suspension, After Suspension).
+
+    Pupil details: {pupil_details}
+    Suspension reason: {reason}
+    Suspension_beginning_date:{suspension_beginning_date}
+    Time frame: {duration} days
+    School suspension policy: {suspension_policy}"
+
+    The pupil should be back the day following the suspension and a reintegration meeting should happen with the parent at 8am on that day

@@ -1,0 +1,54 @@
+Prompt 1:
+Please write a suspension letter for a pupil using the following elements:
+
+Refer to the provided example letter for tone and structure.
+Use the provided JSON object for pupil-specific details. Only include information explicitly found in this data.
+Important:
+
+Do not include any sections related to missing public examinations or national curriculum tests.
+If any details are unclear or missing, omit them rather than assuming information.
+Here is the example letter: <letter placeholder>
+Pupil details: {pupil_details}
+
+Ensure the letter is clear, professional, and aligned with school policies.
+
+
+Prompt 2:
+    Please write a suspension letter for a pupil using the following elements:
+
+    Refer to the provided example letter for tone and structure.
+    Use the provided JSON object for pupil-specific details. Only include information explicitly found in this data.
+    Important:
+
+    Do not include any sections related to missing public examinations or national curriculum tests.
+    If any details are unclear or missing, omit them rather than assuming information.
+    Here is the example letter: {suspension_letter_template}
+    Pupil details: {pupil_details}
+    Suspension details: [reason: {reason},suspension_beginning_date:{suspension_beginning_date},duration:{duration}]
+    Headteacher's Name: {headteacher}
+
+    Ensure the letter is clear, professional, and aligned with school policies.
+
+    Make sure to format entered information correctly and don't enter it within square brackets
+
+
+Prompt 3 (Best Version):
+
+    Please write a suspension letter for a pupil using the following elements:
+
+    Refer to the provided example letter for tone and structure.
+    Use the provided JSON object for pupil-specific details. Only include information explicitly found in this data.
+    Important:
+
+    Do not include any sections related to missing public examinations or national curriculum tests.
+    If any details are unclear or missing, omit them rather than assuming information.
+    Here is the example letter: {suspension_letter_template}
+    Pupil details: {pupil_details}
+    Suspension details: [reason: {reason},suspension_beginning_date:{suspension_beginning_date},duration:{duration} days]
+    Headteacher's Name: {headteacher}
+
+    Ensure the letter is clear, professional, and aligned with school policies.
+
+    The pupil should be back the day following the suspension and a reintegration meeting should happen with the parent at 8am on that day
+
+    Make sure to format entered information correctly and don't enter it within square brackets
