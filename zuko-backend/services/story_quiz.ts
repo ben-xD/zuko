@@ -11,7 +11,7 @@ const headers = {
   Authorization: `Bearer ${CLOUDFLARE_AUTH_TOKEN}`,
 };
 
-async function generateSuspensionLetter(storyText: string): Promise<string | null> {
+async function generateStoryQuiz(storyText: string): Promise<string | null> {
   const prompt = `
     Your task is to generate a quiz in JSON format based on the provided story, with a particular focus on reinforcing the moral lesson.
 
