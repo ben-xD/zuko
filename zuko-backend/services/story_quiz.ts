@@ -17,11 +17,13 @@ async function generateSuspensionLetter(storyText: string): Promise<string | nul
 
     Story: Refer to the story provided below.
 
-    Quiz Structure: Create a set of 5 multiple-choice questions (with 4 options each) and 1 open-ended question. The quiz should be structured as follows:
+    Quiz Structure: Create a set of 4 multiple-choice questions (with 4 options each) and 1 open-ended question. The quiz should be structured as follows:
 
-    Questions 1-2: Focus on key events and characters in the story.
+    Questions 1: Focus on key events and characters in the story.
+    Question 2: Ask a question specifically about the vocabulary
     Question 3: Center around the moral or lesson of the story, testing the pupil's understanding of the takeaway.
     Question 4: An open-ended question asking the pupil to reflect on how the story's moral applies to their own life.
+
     Format: Return the quiz in the following JSON structure:
 
     {
