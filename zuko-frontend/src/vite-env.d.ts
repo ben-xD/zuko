@@ -6,6 +6,7 @@
 // See https://vite.dev/guide/env-and-mode#intellisense-for-typescript
 interface ImportMetaEnv {
     readonly VITE_BACKEND_HTTP_URL: string
+    readonly ENABLED_ROUTER_DEVTOOLS: string
     // more env variables...
   }
   

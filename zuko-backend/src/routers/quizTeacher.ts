@@ -2,6 +2,7 @@ import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {AppContext} from '../AppContext';
 import { v4 as uuidv4 } from 'uuid';
 import { quiz } from "../db/schema/quiz";
+import { createStoryQuizPrompt } from "../../services/story_quiz";
 
 // TODO implement APIs:
 // - Create quiz
@@ -63,7 +64,7 @@ const QuizWithAnswersSchema = z.object({
     example: "Geography",
   }),
   keyStage: z.string().openapi({
-    example: "KS3",
+    example: "ks3",
   }),
   topic: z
   .string()
@@ -77,10 +78,16 @@ const QuizWithAnswersSchema = z.object({
 // We chain all the routes so that they is included in userRouter, and then included the AppType type used by the frontend.
 export const quizTeacherRouter = new OpenAPIHono<AppContext>()
 .openapi(createRoute({
-  method: "get",
-  path: "/{id}",
+  method: "post",
+  path: "/",
   request: {
-    query: CreateQuizParamsSchema,
+    body: {
+      content: {
+        "application/json": {
+          schema: CreateQuizParamsSchema,
+        },
+      },
+    },
   },
   responses: {
     200: {
@@ -93,12 +100,24 @@ export const quizTeacherRouter = new OpenAPIHono<AppContext>()
     },
   },
 }), async (c) => {
+
+  const { topic, subject, questionCount, keyStage } = c.req.valid("json");
+
+  const response = await c.env.AI.run(
+    `@cf/meta/llama-3.2-3b-instruct`, {
+      messages: [
+        { role: 'system', content: 'You are a skilled educational content creator.' },
+        { role: 'user', content: createStoryQuizPrompt(topic) }
+      ]
+    });
+
+    console.log({response})
+
   // Use OakClient for any data:
   const oakClient = c.var.oakHttpClient;
   // Use db to store data:
   const db = c.var.db;
   // const newQuestionId = uuidv4();
-  const { topic, subject, questionCount, keyStage } = c.req.valid("query");
   // TODO use the AI prompt API to generate questions (use questionCount)
 
   const newQuiz = await db.insert(quiz).values({
