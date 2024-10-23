@@ -1,4 +1,4 @@
-School Suspension Policy
+export const suspensionPolicy = `School Suspension Policy
 
 1. Purpose
 This policy outlines the procedures for suspending a pupil from school due to violations of the school's code of conduct. The goal of suspension is to maintain a safe and respectful learning environment while providing the pupil an opportunity to reflect on their behavior and make positive changes.
@@ -35,3 +35,4 @@ A formal record of the suspension, including all related communications and acti
 
 9. Policy Review
 This policy will be reviewed annually by the school’s governing body to ensure it meets current educational and legal standards.
+`

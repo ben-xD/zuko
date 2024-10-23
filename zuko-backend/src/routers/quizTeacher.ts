@@ -3,6 +3,9 @@ import {AppContext} from '../AppContext';
 import { v4 as uuidv4 } from 'uuid';
 import { quiz } from "../db/schema/quiz";
 import { createStoryQuizPrompt } from "../../services/story_quiz";
+import {llama3_2_instruct} from '../CloudflareModels';
+import {createRemediationStory} from '../../services/remediation-story';
+import { ErrorSchema } from "../schema/error";
 
 // TODO implement APIs:
 // - Create quiz
@@ -97,21 +100,10 @@ export const quizTeacherRouter = new OpenAPIHono<AppContext>()
         },
       },
       description: "Retrieve the user",
-    },
+    }
   },
 }), async (c) => {
-
   const { topic, subject, questionCount, keyStage } = c.req.valid("json");
-
-  const response = await c.env.AI.run(
-    `@cf/meta/llama-3.2-3b-instruct`, {
-      messages: [
-        { role: 'system', content: 'You are a skilled educational content creator.' },
-        { role: 'user', content: createStoryQuizPrompt(topic) }
-      ]
-    });
-
-    console.log({response})
 
   // Use OakClient for any data:
   const oakClient = c.var.oakHttpClient;
@@ -125,6 +117,7 @@ export const quizTeacherRouter = new OpenAPIHono<AppContext>()
   subject,
   });
 
+  c.status(200);
   return c.json({
     keyStage,
     subject,

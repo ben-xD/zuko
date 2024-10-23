@@ -1,4 +1,3 @@
-import { Ai } from '@cloudflare/workers-types';
 import * as dotenv from 'dotenv';
 
 // Load environment variables from .env file

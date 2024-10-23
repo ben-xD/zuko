@@ -6,6 +6,7 @@ import {createOakHttpClient} from './oakHttpClient';
 import {AppContext} from './AppContext';
 import { cors } from 'hono/cors'
 import {createDb} from './db/db';
+import { remediationRouter } from "./routers/remediation";
 
 // See https://hono.dev/docs/concepts/stacks and https://hono.dev/docs/guides/rpc for more information
 // For streaming LLM responses over SSE, we can use https://hono.dev/docs/helpers/streaming#streamsse
@@ -33,6 +34,7 @@ app.use('/api/*', cors())
 //   await next();
 // })
 .route("/api/quiz", quizTeacherRouter)
+.route("/api/remediation", remediationRouter)
 // TODO Register more routers here.
 // .route("/example", exampleRouter)
 .get("/", (c) => {

@@ -1,3 +1,5 @@
+
+export const suspensionLetter = `
 Dear [parent/carer's name]
 I am writing to inform you of my decision to suspend [child's name] for a fixed period of [specify period].  This means that [child's name] will not be allowed in school for this period.  The suspension [begins/began] on [date] and ends on [date].
 I realise that this suspension may well be upsetting for you and your family, but the decision to suspend [child's name] has not been taken lightly.  [Child's name] has been suspended for this fixed period because [reason for suspension].
@@ -27,3 +29,4 @@ You [and your child or pupil’s name] are requested to attend a reintegration i
 [Name of child]'s suspension expires on [date] and we expect [name of child] to be back in school on [date] at [time].  
 Yours sincerely
 [Name] Head teacher
+`
