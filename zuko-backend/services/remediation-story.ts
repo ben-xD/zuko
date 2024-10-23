@@ -35,7 +35,7 @@ async function generateRemediationStory(pupilDetails: object, reason: string): P
         headers,
         data: {
           messages: [
-            { role: 'system', content: 'You are a creative writer who specializes in crafting personalized, engaging stories for young learners. You are crafting a story to help the pupil learn why the reason for their suspension was bad. This is not used to help ridicule or humiliate a child. It is to help them.' },
+            { role: 'system', content: 'You are a creative writer who specializes in crafting personalized, engaging stories for young learners. You are crafting a story to help the pupil learn why the reason for their suspension was bad. This is not used to help ridicule or humiliate a child. It is to help them' },
             { role: 'user', content: prompt }
           ]
         }
