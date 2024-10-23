@@ -33,6 +33,10 @@ const data = {
       url: "/teachers/exclusion",
       items: [
         {
+          title: "Suspend student",
+          url: "/teachers/exclusion/suspend-student",
+        },
+        {
           title: "Parents letter",
           url: "/teachers/exclusion/parents-letter",
           disabled: true,
@@ -40,22 +44,18 @@ const data = {
         {
           title: "Remediation story",
           url: "/teachers/exclusion/remediation-story",
-          disabled: false,
         },
         {
           title: "Create quiz",
           url: "/teachers/exclusion/quiz/create",
-          disabled: false,
         },
         {
           title: "Quiz library",
           url: "/teachers/exclusion/quiz/library",
-          disabled: false,
         },
         {
           title: "Student take-home pack",
           url: "/teachers/exclusion/student-take-home-pack",
-          disabled: false,
         },
         {
           title: "Parents support",

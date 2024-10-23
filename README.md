@@ -38,12 +38,5 @@ By Mark Cox-Smith, Toby Little and Ben Butterworth as part of [Oak National Acad
 - Deploy backend
 - Build frontend, then deploy frontend
 
-## TODOs
-
-- Setup teacher UI: quiz UI and API, integrate with prompts
-- Setup student UI: answer quiz
-- Setup workers AI access (credentials, example inference)
-- Setup other automations UI
-
 ## Nice to haves
 - Deploy backend from CI: https://hono.dev/docs/getting-started/cloudflare-workers#deploy-from-github-action
