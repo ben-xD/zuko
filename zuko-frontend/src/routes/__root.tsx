@@ -18,23 +18,29 @@ const TanStackRouterDevtools =
 export const Route = createRootRoute({
   component: () => {
     const router = useRouterState();
-    return (
-        <>    
-          <SidebarProvider>
-          <AppSidebar currentUrl={router.location.pathname} />
-          <SidebarInset>
-            <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-              <SidebarTrigger className="-ml-1" />
-              <Separator orientation="vertical" className="mr-2 h-4" />
-            </header>
-            <Outlet/>
-          </SidebarInset>
-        </SidebarProvider>
     
-          <Suspense>
-            <TanStackRouterDevtools position={"bottom-right"} />
-          </Suspense>
-        </>
-      )
+    const isTeacherRoute = router.location.pathname.startsWith('/teachers');
+    if (router.location.pathname == "/" || isTeacherRoute) {
+      return (
+          <>    
+            <SidebarProvider>
+            <AppSidebar currentUrl={router.location.pathname} />
+            <SidebarInset>
+              <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+                <SidebarTrigger className="-ml-1" />
+                <Separator orientation="vertical" className="mr-2 h-4" />
+              </header>
+              <Outlet/>
+            </SidebarInset>
+          </SidebarProvider>
+      
+            <Suspense>
+              <TanStackRouterDevtools position={"bottom-right"} />
+            </Suspense>
+          </>
+        )
+    }
+
+    return <Outlet/>;
   },
 })
